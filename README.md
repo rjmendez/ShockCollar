@@ -34,7 +34,25 @@ transmitters.
 
 Use:
 
-sudo ShockCollar.py [power level] [reciever ID/mode]
+sudo python ShockCollar.py -h
+ShockCollar.py -l <level> -r <reciever> -s <systemid>
+
+Level
+Integer: 1-100
+
+Reciever Codes
+1: Shock collar 1
+3: Shock collar 2
+5: Vibrate collar 1
+7: Vibrate collar 2
+9: Tone collar 1
+11: Tone collar 2
+13: Light collar 1
+15: Light collar 2
+
+System ID
+Integer: 1-1048575
+
 
 Some modes do not support power levels like the chirping tone and the
 flashing LED. The protocol supports values greater than 100 on vibrate
