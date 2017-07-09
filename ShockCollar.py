@@ -22,7 +22,7 @@ help_msg = 'ShockCollar.py -l <level> -r <reciever> -s <systemid>\n\nLevel\nInte
 frequency = 433945000
 baudRate = 3600
 keyLen = 0
-d = rflib.RfCat()
+#d = rflib.RfCat()
 rxid_list = [1, 3, 5, 7, 9, 11, 13, 15]
 #Activate packet spoiler for extra speed!
 #Sequence of bits will set the end of stream and correct timing of pulses.
@@ -53,7 +53,6 @@ def PadBytes(byte_length, hex_val):
     if pad_num < 0:
         print('Invalid length of input, was expecting <= ' + str(byte_length) + ' but we got ' + str(len(hex_val)) + ' instead!')
         print(help_msg)
-        d.setModeIDLE()
         quit()
 
 def PacketValues(level, rxid, sysid):
@@ -83,7 +82,6 @@ def ValidateInputs(level, rxid, sysid):
     if rxid not in rxid_list:
         print("Bad reciever id value!")
         print(help_msg)
-        d.setModeIDLE()
         quit()
     if rxid in [9, 11, 13, 15]:
         print('Setting Power Level to 1.\nCurrent rxid setting: ' + str(rxid) + ' does not support power levels!')
@@ -101,7 +99,6 @@ def ValidateInputs(level, rxid, sysid):
     if sysid >= 1048576:
         print("Invalid System ID Detected!")
         print(help_msg)
-        d.setModeIDLE()
         quit()
     if sysid <= 1048575:
         return level, rxid, sysid
@@ -114,7 +111,7 @@ def hex_to_binary(h):
     return ''.join(byte_to_binary(ord(b)) for b in binascii.unhexlify(h))
 
 def main(argv):
-    level = ''
+    level = 1
     rxid = ''
     sysid = ''
     input_hex = ''
@@ -160,6 +157,7 @@ def main(argv):
     rf_data = bitstring.BitArray(bin=output_bin+data_spoiler).tobytes()
     keyLen = len(rf_data)
     #Configure Radio here.
+    d = rflib.RfCat()
     ConfigureD(d)
     #Transmit here.
     print('Sending packet payload 4*: ' + input_hex)
