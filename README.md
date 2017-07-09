@@ -12,14 +12,23 @@ bytes from 8 bytes of FF and comparing that to the last 8 bytes in this
 packet followed by a binary 11 in the radio baseband.
 
 level: 01-64 (1-100)
+
 rxid 1: Shock collar 1
+
 rxid 3: Shock collar 2
+
 rxid 5: Vibrate collar 1
+
 rxid 7: Vibrate collar 2
+
 rxid 9: Tone collar 1
+
 rxid b: Tone collar 2
+
 rxid d: Light collar 1
+
 rxid f: Light collar 2
+
 sysid: The device I have has this set, unsure if this changes between
 transmitters.
 
