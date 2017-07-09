@@ -1,9 +1,10 @@
 # ShockCollar
 RFcat "Dog Training Collar" controller
 
-Example packet breakdown
+Example packet breakdown.
+
 08|7|535e3|f7|8|aca1c
-^  ^ ^     ^  ^ ^
+
 level|rxid|sysid|ff-level|f-rxid|fffff-sysid
 
 It seems that it verifies the packet is valid by subtracting the first 8
