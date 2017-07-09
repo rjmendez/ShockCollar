@@ -83,7 +83,7 @@ keyLen = len(rf_data)
 #Configure Radio here.
 ConfigureD(d)
 #Transmit here.
-print('Sending packet payload 3*: ' + input_hex)
+print('Sending packet payload 4*: ' + input_hex)
 d.RFxmit(rf_data, repeat=3)
 d.setModeIDLE()
 print('Done!')
