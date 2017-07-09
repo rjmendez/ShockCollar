@@ -41,13 +41,21 @@ Level
 Integer: 1-100
 
 Reciever Codes
+
 1: Shock collar 1
+
 3: Shock collar 2
+
 5: Vibrate collar 1
+
 7: Vibrate collar 2
+
 9: Tone collar 1
+
 11: Tone collar 2
+
 13: Light collar 1
+
 15: Light collar 2
 
 System ID
