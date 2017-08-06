@@ -16,7 +16,7 @@ rxid d: Light collar 1
 rxid f: Light collar 2
 '''
 #Help
-help_msg = 'ShockCollar.py -l <level> -r <reciever> -s <systemid>\n\nLevel\nInteger: 1-100\n\nReciever Codes\n1: Shock collar 1\n3: Shock collar 2\n5: Vibrate collar 1\n7: Vibrate collar 2\n9: Tone collar 1\n11: Tone collar 2\n13: Light collar 1\n15: Light collar 2\n\nSystem ID\nInteger: 1-1048575'
+help_msg = 'ShockCollar.py -l <level> -r <receiver> -s <systemid>\n\nLevel\nInteger: 1-100\n\nReceiver Codes\n1: Shock collar 1\n3: Shock collar 2\n5: Vibrate collar 1\n7: Vibrate collar 2\n9: Tone collar 1\n11: Tone collar 2\n13: Light collar 1\n15: Light collar 2\n\nSystem ID\nInteger: 1-1048575'
 
 #Radio stuff
 frequency = 433945000
@@ -80,7 +80,7 @@ def PacketValues(level, rxid, sysid):
 def ValidateInputs(level, rxid, sysid):
     #Some modes (tone and blinking light) don't support power levels. 
     if rxid not in rxid_list:
-        print("Bad reciever id value!")
+        print("Bad receiver id value!")
         print(help_msg)
         quit()
     if rxid in [9, 11, 13, 15]:
@@ -118,7 +118,7 @@ def main(argv):
     output_hex = ''
     output_bin = ''
     try:
-        opts, args = getopt.getopt(argv,"hl:r:s:",["level=","reciever=","systemid"])
+        opts, args = getopt.getopt(argv,"hl:r:s:",["level=","receiver=","systemid"])
     except getopt.GetoptError as error:
         print(error)
         print(help_msg)
@@ -129,7 +129,7 @@ def main(argv):
             sys.exit()
         elif opt in ("-l", "--level"):
             level = int(arg)
-        elif opt in ("-r", "--reciever"):
+        elif opt in ("-r", "--receiver"):
             rxid = int(arg)
         elif opt in ("-s", "--systemid"):
             sysid = int(arg)

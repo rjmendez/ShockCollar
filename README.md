@@ -28,12 +28,12 @@ transmitters.
 Use:
 ```
 sudo python ShockCollar.py -h
-ShockCollar.py -l <level> -r <reciever> -s <systemid>
+ShockCollar.py -l <level> -r <receiver> -s <systemid>
 
 Level
 Integer: 1-100
 
-Reciever Codes
+Receiver Codes
 
 1: Shock collar 1
 3: Shock collar 2
